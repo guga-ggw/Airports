@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
-
 const initialState = {
-    countries : []
+    countries : [],
+    loading : false,
+    error : false
 }
 
 const countriesSlice = createSlice({
@@ -11,7 +12,8 @@ const countriesSlice = createSlice({
         setcountries : (state, action) => {
             state.countries = action.payload
         }
-    }
+    },
+    
 })
 
 export const {setcountries} = countriesSlice.actions

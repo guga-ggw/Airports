@@ -1,12 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import router from './router/router'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>Hello</h1>
-    </>
+      <RouterProvider router={createBrowserRouter(router)}/>
   )
 }
 

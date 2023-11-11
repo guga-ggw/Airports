@@ -1,13 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "redux";
-import countriesSlice from "./countries/countries.slice";
-
-const rootReducer = combineReducers({
-    countries : countriesSlice,
-    currency : {},
-    airports : {},
-})
+import { configureStore } from '@reduxjs/toolkit';
+import countriesReducer from './countries/countries.slice'; // Correct import statement
+import { api } from './countries/countries.api';
 
 export const store = configureStore({
-    reducer : rootReducer
-})
+  reducer: {
+    countries: countriesReducer, // Use the correct reducer
+    [api.reducerPath]: api.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
+});
