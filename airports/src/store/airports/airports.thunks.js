@@ -3,7 +3,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const getAirports = createAsyncThunk(
   '/get/airports',
   async (name, thunkAPI) => {
-    console.log(name)
     try {
       const res = await fetch(`https://api.api-ninjas.com/v1/airports?country=${name}`, {
         method: 'GET',

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@500;600;700&family=Edu+SA+Beginner:wght@700&family=Fjalla+One&family=Gabarito&family=Goldman:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,700;1,700&family=Kanit:ital,wght@0,500;0,700;1,400;1,700&family=Oswald:wght@500;600&family=Roboto:ital,wght@0,900;1,700&family=Victor+Mono:ital,wght@0,500;1,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Dancing+Script:wght@500;600;700&family=Edu+SA+Beginner:wght@700&family=Fjalla+One&family=Gabarito&family=Goldman:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,700;1,700&family=Kanit:ital,wght@0,500;0,700;1,400;1,700&family=Oswald:wght@500;600&family=Roboto:ital,wght@0,900;1,700&family=Rubik+Mono+One&family=Victor+Mono:ital,wght@0,500;1,300&display=swap');
 
 @mixin mobile500 {
     @media screen and (max-width : 500px){
@@ -220,4 +219,97 @@ html::-webkit-scrollbar{
     background:#6dd5ed;
     width: 100%;
     text-align: center;
+}
+
+#ChoosePage{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#83a4d4,#b6fbff);
+    @include centeritems();
+    gap: 200px;
+    h2{
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 4px rgb(34, 34, 34);
+        font-size: 29px;
+        cursor: pointer;
+        font-family: sans-serif;
+    }
+}
+
+
+#option_box{
+    width: 500px;
+    height: 500px;
+    background-color: #29323ccc;
+    box-shadow: 2px 5px 10px 1px rgb(0, 0, 0);
+    overflow: hidden;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-family: 'Rubik Mono One', monospace;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 20px;
+    position: relative;
+    #plane_img{
+        width: 400px;
+    }
+    #dollar_img{
+        width: 200px;
+    }
+    img{
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        top: 170px;
+        pointer-events: none;
+    }
+    h1{
+        text-shadow: 2px 5px 10px black;
+        font-weight: 900;
+        font-size: 45px;
+    }
+    button{
+        position: absolute;
+        bottom: 50px;
+        width: 200px;
+        height: 40px;
+        border-radius: 40px;
+        border: none;
+        box-shadow: 2px 1px 20px 1px black;
+        cursor: pointer;
+        font-family: 'Victor Mono', monospace;
+        font-weight: 800;
+        font-size: 16px;
+    }
+}
+
+#Error_Page{
+    width: 100;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    flex-direction: column;
+    h1{
+        color: white;
+        text-shadow: 4px 1px 10px black;
+        font-size: 50px;
+        font-family: 'Victor Mono', monospace;
+    }
+    button{
+        width: 150px;
+        height: 30px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 2px 1px 3px 1px rgba(0, 0, 0, 0.346);
+        cursor: pointer;
+    }
 }

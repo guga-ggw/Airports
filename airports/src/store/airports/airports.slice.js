@@ -14,7 +14,6 @@ const airportsSlice = createSlice({
     },
     extraReducers : {
         [getAirports.fulfilled.type] : (state, action) => {
-            console.log(action)
             state.Airports = action.payload
             state.loading = false
         },
