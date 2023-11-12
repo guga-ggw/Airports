@@ -1,17 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setcountries } from '../store/countries/countries.slice';
+import { setcountries, setcurrent } from '../store/countries/countries.slice';
 import { useGetDataQuery } from '../store/countries/countries.api';
 import {motion} from 'framer-motion'
 import plane from '../assets/plane.png'
+import { getAirports } from '../store/airports/airports.thunks';
 
 function LandingPage() {
   const dispatch = useDispatch();
   const { data, error, isLoading } = useGetDataQuery();
   const [showdata, setshowdata] = useState(false)
   const countrycontref = useRef()
-  const chooseCountry = async () => {
+  const [curcountry, setcurencountry] = useState()
 
+  const chooseCountry = async () => {
     const changest = async () => {
         setshowdata(true)
         return true
@@ -21,6 +23,21 @@ function LandingPage() {
   }
 
 
+  const getinfo = async () => {
+    try {
+      const response = await fetch('https://api.ipify.org')
+      const data = await response.text()
+      const res = await fetch(`http://ip-api.com/json/${data}`)
+      const geo = await res.json()
+      dispatch(getAirports(geo.countryCode))
+      dispatch(setcurrent(geo.country))
+    } catch (error) {
+      
+    }
+  }
+
+
+  console.log()
   console.log(isLoading)
   console.log(data);
 
@@ -32,7 +49,7 @@ function LandingPage() {
         </motion.h1>
         <div className="landing_button_box">
             <motion.button  initial={{ opacity : 0 }} animate={{scale : 1, opacity : 1, y :0}} transition={{delay : 1.3, duration : 1.4, ease : "easeIn"}} onClick={() => chooseCountry()}>Choose Country</motion.button>
-            <motion.button  initial={{ opacity : 0}} animate={{scale : 1, opacity : 1, y :0}} transition={{delay : 1.5, duration : 1.4, ease : "easeIn"}}>Automatic Choose</motion.button>
+            <motion.button  initial={{ opacity : 0}} animate={{scale : 1, opacity : 1, y :0}} transition={{delay : 1.5, duration : 1.4, ease : "easeIn"}} onClick={() => getinfo()} >Automatic Choose</motion.button>
 
         </div>
     </motion.div>
