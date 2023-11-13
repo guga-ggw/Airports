@@ -1,6 +1,7 @@
 import React from 'react'
 import LandingPage from '../Pages/LandingPage'
 import ChoosePage from '../Pages/ChoosePage'
+import Airports from '../Pages/Airports'
 
 const router = [
     {
@@ -10,6 +11,10 @@ const router = [
     {
         element : <ChoosePage/>,
         path : "choose"
+    },
+    {
+        element : <Airports/>,
+        path : "airports"
     }
 ]
 
