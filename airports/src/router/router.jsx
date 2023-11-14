@@ -2,6 +2,7 @@ import React from 'react'
 import LandingPage from '../Pages/LandingPage'
 import ChoosePage from '../Pages/ChoosePage'
 import Airports from '../Pages/Airports'
+import Currency from '../Pages/Currency'
 
 const router = [
     {
@@ -15,6 +16,10 @@ const router = [
     {
         element : <Airports/>,
         path : "airports"
+    },
+    {
+        element : <Currency/>,
+        path : "exchange"
     }
 ]
 

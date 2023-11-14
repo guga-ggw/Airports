@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router';
@@ -8,11 +8,19 @@ function Airports() {
   const currentCountry = useSelector((state) => state.countries.currentCountry);
   const navigate = useNavigate();
   const [filtertxt, setfiltertxt] = useState('');
+  const [isAuto, setIsAuto] = useState()
 
   const filteredAirports = AirportList.filter(
     (item) => item.name.toLowerCase().includes(filtertxt.toLowerCase())
   );
 
+  useEffect(() => {
+    if(typeof(currentCountry.country) === 'string'){
+      setIsAuto(true)
+    }else{
+      setIsAuto(false)
+    }
+  }, [])
   return (
     <div id="AirportsPage">
       <motion.h3
@@ -30,7 +38,9 @@ function Airports() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.7 }}
         >
-          Airports of {currentCountry}
+          See every Airports of {
+        isAuto ? country.country : currentCountry.altSpellings[currentCountry.altSpellings.length === 1 ? 0 : 1]
+      }`
         </motion.h1>
       )}
       <div className="airports_list">

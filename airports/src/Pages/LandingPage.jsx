@@ -25,9 +25,10 @@ function LandingPage() {
 
 
   const choosenInfo = async (item) => {
+    console.log(item)
     dispatch(getAirports(item.altSpellings[0]))
-    dispatch(setcurrent(item.altSpellings[1]))
-    navigate('choose')
+    dispatch(setcurrent(item))
+    navigate('/choose')
   }
 
   const autoinfo = async () => {
@@ -38,7 +39,7 @@ function LandingPage() {
       const res = await fetch(`http://ip-api.com/json/${data}`)
       const geo = await res.json()
       dispatch(getAirports(geo.countryCode))
-      dispatch(setcurrent(geo.country))
+      dispatch(setcurrent(geo))
       navigate('choose')
     } catch (error) {
       
