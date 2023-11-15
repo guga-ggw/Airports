@@ -40,7 +40,7 @@ function Airports() {
         >
           See every Airports of {
         isAuto ? country.country : currentCountry.altSpellings[currentCountry.altSpellings.length === 1 ? 0 : 1]
-      }`
+      }
         </motion.h1>
       )}
       <div className="airports_list">

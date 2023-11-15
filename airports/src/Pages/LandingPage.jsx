@@ -33,18 +33,25 @@ function LandingPage() {
 
   const autoinfo = async () => {
     try {
-      const getsuc = window.alert('let webpage know your location')
-      const response = await fetch('https://api.ipify.org')
-      const data = await response.text()
-      const res = await fetch(`http://ip-api.com/json/${data}`)
-      const geo = await res.json()
-      dispatch(getAirports(geo.countryCode))
-      dispatch(setcurrent(geo))
-      navigate('choose')
+      const response = await fetch('https://api.ipify.org');
+      const dataauto = await response.text();
+      const res = await fetch(`http://ip-api.com/json/${dataauto}`);
+      const geo = await res.json();
+  
+      const cntrAuto = data.filter((item) => {
+        console.log(item.name.common)
+        return item.name.common === geo.country;
+      });
+
+      console.log(geo.country)
+  
+      dispatch(getAirports(geo.countryCode));
+      dispatch(setcurrent(cntrAuto[0]));
+      navigate('choose');
     } catch (error) {
-      
+      console.error("Error in autoinfo:", error);
     }
-  }
+  };
 
 
 
