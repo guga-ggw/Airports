@@ -555,6 +555,15 @@ html::-webkit-scrollbar{
     overflow: hidden;
     box-shadow: 2px 5px 100px 1px #faaca8;
     background: linear-gradient(-115deg, #ddd6f3, #faaca8);
+    @include mobileview{
+        width: 85vw;
+    }
+    @include mobileviewlower{
+        height: 600px;
+    }
+    @include mobileview720{
+        height: 80vh;
+    }
     .currency_header{
         width: 100%;
         height: 12%;
@@ -565,7 +574,9 @@ html::-webkit-scrollbar{
         background-color: white;
         h2{
             font-size: 19px;
-            font-family: sans-serif;
+            font-family: 'Rubik Mono One', monospace;
+            font-weight: 100;
+            color: grey;
             height: 100%;
             width: 150px;
             border-top-right-radius: 20px;
@@ -574,6 +585,7 @@ html::-webkit-scrollbar{
             padding-left: 14px;
             display: flex;
             align-items: center;
+            
 
         }
     }
@@ -586,6 +598,18 @@ html::-webkit-scrollbar{
         align-items: center;
         justify-content: center;
         gap: 50px;
+        @include mobileview{
+            gap: 20px;
+        }
+
+        @include mobileviewlower{
+            flex-direction: column;
+        }
+        @include mobileview720{
+            gap: 10px;
+            padding-bottom: 100px;
+        }
+
         #exchanger_box{
             display: flex;
             flex-direction: column;
@@ -594,6 +618,9 @@ html::-webkit-scrollbar{
             font-family: sans-serif;
             text-shadow: 2px 3px 5px black;
             font-size: 20px;
+            @include mobileview720{
+                font-size: 15px;
+            }
             div{
                 color: rgb(68, 66, 66);
                 text-shadow: none;
@@ -607,6 +634,10 @@ html::-webkit-scrollbar{
                 padding-left: 20px;
                 box-shadow: 2px 3px 5px 1px rgba(0, 0, 0, 0.263);
                 pointer-events: none;
+                @include mobileviewlower{
+                    width: 300px;
+                    height: 50px;
+                }
             }
             input{
                 font-size: 20px;
@@ -619,6 +650,10 @@ html::-webkit-scrollbar{
                 border-radius: 8px;
                 padding-left: 20px;
                 box-shadow: 2px 3px 5px 1px rgba(0, 0, 0, 0.263);
+                @include mobileviewlower{
+                    width: 300px;
+                    height: 50px;
+                }
             }
         }
         button{
@@ -631,6 +666,14 @@ html::-webkit-scrollbar{
             border-radius: 10px;
             box-shadow: 2px 5px 10px 1px pink;
             cursor: pointer;
+            @include mobileviewlower{
+                right: 20px;
+             }
+             @include mobileview720{
+                right: 10px;
+                width: 100px;
+                bottom: 15px;
+            }
         }
         i{
             color: rgb(68, 66, 66);
@@ -649,4 +692,13 @@ html::-webkit-scrollbar{
     font-family: 'Victor Mono', monospace;
     color: white;
     text-shadow: 2px 4px 5px black;
+    @include mobileviewlower{
+       font-size: 19px;
+       left: 50px;
+    }
+    @include mobileview720{
+        font-size: 12px;
+        left: 10px;
+        bottom: 30px;
+    }
 }
